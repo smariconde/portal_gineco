@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Portal Gineco — paleta institucional UNC */
+    /* Azul oscuro institucional #13294B */
+    --primary: 215 60% 18%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Azul médico #4B9CD3 */
+    --accent: 204 58% 56%;
+    --accent-foreground: 215 60% 14%;
+
+    /* Verde salud materna */
+    --success: 100 38% 55%;
+    --success-foreground: 100 40% 12%;
+
+    --background: 210 30% 98%;
+    --foreground: 215 40% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 40% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 40% 14%;
+
+    --secondary: 210 30% 94%;
+    --secondary-foreground: 215 40% 18%;
+
+    --muted: 210 25% 95%;
+    --muted-foreground: 215 15% 45%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 88%;
+    --input: 215 20% 90%;
+    --ring: 204 58% 56%;
+
+    --radius: 0.875rem;
+  }
+
+  .dark {
+    --primary: 204 58% 56%;
+    --primary-foreground: 215 60% 10%;
+
+    --accent: 204 58% 60%;
+    --accent-foreground: 215 60% 10%;
+
+    --success: 100 38% 60%;
+    --success-foreground: 100 40% 10%;
+
+    --background: 215 40% 7%;
+    --foreground: 210 20% 96%;
+
+    --card: 215 38% 10%;
+    --card-foreground: 210 20% 96%;
+
+    --popover: 215 38% 10%;
+    --popover-foreground: 210 20% 96%;
+
+    --secondary: 215 30% 15%;
+    --secondary-foreground: 210 20% 96%;
+
+    --muted: 215 25% 14%;
+    --muted-foreground: 215 15% 65%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 25% 18%;
+    --input: 215 25% 18%;
+    --ring: 204 58% 56%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background-image: radial-gradient(
+        ellipse at top left,
+        hsl(var(--accent) / 0.18),
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at bottom right,
+        hsl(var(--success) / 0.12),
+        transparent 55%
+      );
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+}
