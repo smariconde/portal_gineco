@@ -84,7 +84,7 @@ export function AppShell({
           <div className="flex-1">
             <SidebarNav items={items} pathname={pathname} />
           </div>
-          <div className="shrink-0 border-t p-4">
+          <div className="shrink-0 border-t p-4 lg:hidden">
             <InstitutionalLogos size="sm" className="justify-center" />
           </div>
         </aside>
