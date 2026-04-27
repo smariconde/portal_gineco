@@ -7,7 +7,7 @@ export default function ScanPage() {
     <div className="space-y-6">
       <PageHeader
         title="Escanear QR de rotación"
-        description="Apuntá tu cámara al código QR del aula, quirófano, consultorio, sala de partos o guardia."
+        description="Apuntá tu cámara al código QR del aula, quirófano, consultorio, unidad de colposcopía o guardia."
       />
       <ScanClient />
     </div>

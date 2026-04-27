@@ -33,8 +33,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { InstitutionalLogos } from "@/components/institutional-logos";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { MaternidadLogo } from "@/components/maternidad-logo";
+import { PortalGinecoLogo } from "@/components/portal-gineco-logo";
 import { logout, switchRole } from "@/app/actions/auth";
 import type { Role, User } from "@/lib/types";
 
@@ -79,8 +80,13 @@ export function AppShell({
 
       <div className="container flex flex-1 gap-8 py-6 lg:py-10">
         {/* Sidebar desktop */}
-        <aside className="hidden w-60 shrink-0 lg:block">
-          <SidebarNav items={items} pathname={pathname} />
+        <aside className="hidden w-60 shrink-0 flex-col lg:flex">
+          <div className="flex-1">
+            <SidebarNav items={items} pathname={pathname} />
+          </div>
+          <div className="shrink-0 border-t p-4">
+            <InstitutionalLogos size="sm" className="justify-center" />
+          </div>
         </aside>
 
         <main className="min-w-0 flex-1 animate-fade-in pb-24 lg:pb-0">
@@ -100,11 +106,12 @@ function Header({
   items: NavItem[];
   pathname: string;
 }) {
+  const [mobileOpen, setMobileOpen] = React.useState(false);
   return (
     <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
       <div className="container flex h-16 items-center gap-3">
         {/* Sidebar trigger en mobile */}
-        <Sheet>
+        <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger asChild>
             <Button
               variant="ghost"
@@ -115,23 +122,31 @@ function Header({
               <Menu className="h-5 w-5" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="w-72 p-0">
-            <SheetHeader className="border-b p-4">
+          <SheetContent side="left" className="w-72 p-0 flex flex-col">
+            <SheetHeader className="border-b p-4 shrink-0">
               <SheetTitle asChild>
                 <Link href="/" className="flex items-center">
-                  <MaternidadLogo />
+                  <PortalGinecoLogo />
                 </Link>
               </SheetTitle>
             </SheetHeader>
-            <div className="p-3">
-              <SidebarNav items={items} pathname={pathname} />
+            <div className="flex-1 overflow-auto p-3">
+              <SidebarNav items={items} pathname={pathname} onNavigate={() => setMobileOpen(false)} />
+            </div>
+            <div className="shrink-0 border-t p-4">
+              <InstitutionalLogos size="sm" className="justify-center" />
             </div>
           </SheetContent>
         </Sheet>
 
         <Link href="/" className="flex items-center">
-          <MaternidadLogo />
+          <PortalGinecoLogo />
         </Link>
+
+        <div className="hidden items-center gap-3 lg:flex">
+          <div className="h-6 w-px bg-border" />
+          <InstitutionalLogos size="sm" />
+        </div>
 
         <div className="ml-auto flex items-center gap-1.5">
           <ThemeToggle />
@@ -145,9 +160,11 @@ function Header({
 function SidebarNav({
   items,
   pathname,
+  onNavigate,
 }: {
   items: NavItem[];
   pathname: string;
+  onNavigate?: () => void;
 }) {
   return (
     <nav className="flex flex-col gap-1">
@@ -162,6 +179,7 @@ function SidebarNav({
           <Link
             key={it.href}
             href={it.href}
+            onClick={onNavigate}
             className={cn(
               "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
               active

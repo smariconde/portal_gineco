@@ -62,8 +62,7 @@ export default async function StudentDashboardPage() {
               Hola, {user.fullName.split(" ")[0]} 👋
             </h1>
             <p className="text-sm text-primary-foreground/80 md:text-base">
-              Listas para tu próxima rotación. Recordá escanear el QR del lugar
-              al llegar.
+              Revisá tus rotaciones y documentá los casos clínicos de tu portafolio.
             </p>
           </div>
 

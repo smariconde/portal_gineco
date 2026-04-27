@@ -18,8 +18,8 @@ Plataforma de portafolio digital y seguimiento para la **II Cátedra de Clínica
 - `globals.css`: paleta institucional UNC en CSS vars (light/dark).
   - Primary `#13294B` (azul UNC), Accent `#4B9CD3` (azul médico), Success verde salud materna.
 - Fuente Inter vía `next/font`.
-- Favicon: SVG minimalista (bebé + estetoscopio).
-- Componente `<MaternidadLogo />` SVG inline.
+- Favicon: SVG minimalista (portapapeles clínico + acento médico).
+- Componente `<PortalGinecoLogo />` SVG inline.
 - `ThemeProvider` con `next-themes` + toggle en header.
 
 ### 3. Layout y navegación

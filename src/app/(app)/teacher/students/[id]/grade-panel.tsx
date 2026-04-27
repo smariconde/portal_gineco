@@ -51,7 +51,7 @@ export function GradePanel({ studentName, initialGrade, stats }: Props) {
       const rounded = Math.round(score * 10) / 10;
       setAi(rounded);
       setAiJustification(
-        `${studentName} documentó ${stats.cases} casos clínicos con descripciones de buena profundidad y reflexiones personales coherentes. Asistencia consistente con ${stats.checkIns} check-ins por QR cubriendo los principales ámbitos de rotación. Participación en el foro con ${stats.messages} mensajes — incluye dudas pertinentes y seguimiento de bibliografía sugerida. Combinado con la nota conceptual de ${conc}/10, se sugiere una nota de participación de ${rounded}/10.`
+        `${studentName} documentó ${stats.cases} casos clínicos con descripciones detalladas y reflexiones personales coherentes. Asistencia regular a las rotaciones en los distintos sectores del servicio. Participación activa en las discusiones tutor-alumno. Combinado con la evaluación conceptual de ${conc}/10, se sugiere una nota de participación de ${rounded}/10.`
       );
       setGenerating(false);
       toast.success("Nota IA generada", {
@@ -131,7 +131,7 @@ export function GradePanel({ studentName, initialGrade, stats }: Props) {
                   Nota IA de participación
                 </h3>
                 <p className="text-xs text-muted-foreground">
-                  Analiza portafolio + rotaciones + foro + nota conceptual.
+                  Analiza documentación clínica + rotaciones + participación + evaluación conceptual.
                 </p>
               </div>
               <Button onClick={generateAi} disabled={generating} variant="accent">

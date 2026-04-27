@@ -100,11 +100,11 @@ export default async function GradesPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" />
-                    Asistencia registrada por QR en cada lugar de rotación.
+                    Asistencia registrada en cada lugar de rotación.
                   </li>
                   <li className="flex items-start gap-2">
                     <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" />
-                    Profundidad de tus mensajes en el foro con tutor/a.
+                    Participación en las discusiones clínicas con tutor/a.
                   </li>
                   <li className="flex items-start gap-2">
                     <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" />

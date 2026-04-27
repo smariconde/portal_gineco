@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { Baby, Mail, Stethoscope, UserRound, Users } from "lucide-react";
+import { Mail, Stethoscope, UserRound, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,7 +10,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { MaternidadLogo } from "@/components/maternidad-logo";
+import { InstitutionalLogos } from "@/components/institutional-logos";
+import { PortalGinecoLogo } from "@/components/portal-gineco-logo";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { loginAsRole } from "@/app/actions/auth";
 import { defaultLandingForRole, getCurrentRole } from "@/lib/session";
@@ -22,14 +23,31 @@ export default async function LoginPage() {
   return (
     <div className="relative flex min-h-dvh flex-col gradient-hero">
       <header className="container flex h-16 items-center justify-between">
-        <MaternidadLogo />
+        <div className="flex items-center gap-4">
+          <PortalGinecoLogo />
+          <div className="hidden h-6 w-px bg-border sm:block" />
+          <InstitutionalLogos size="sm" className="hidden sm:flex" />
+        </div>
         <ThemeToggle />
       </header>
 
       <main className="container grid flex-1 items-center gap-12 py-10 lg:grid-cols-2 lg:py-20">
         <section className="space-y-6">
           <span className="inline-flex items-center gap-2 rounded-full border bg-card/80 px-3 py-1 text-xs font-medium text-accent-foreground backdrop-blur">
-            <Baby className="h-3.5 w-3.5 text-accent" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-3.5 w-3.5 text-accent"
+            >
+              <path d="M12 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" />
+              <path d="M12 15v5" />
+              <path d="M9 18h6" />
+            </svg>
             II Cátedra de Clínica Ginecológica · FCM UNC
           </span>
           <h1 className="text-balance text-4xl font-semibold tracking-tight md:text-5xl">
@@ -80,9 +98,7 @@ export default async function LoginPage() {
                 <Mail className="h-4 w-4" />
                 <span>tu.usuario@mi.unc.edu.ar</span>
               </div>
-              <p className="text-xs text-muted-foreground">
-                Login real con Supabase Auth — disponible en Fase 2.
-              </p>
+
             </div>
 
             <Separator />
@@ -96,7 +112,7 @@ export default async function LoginPage() {
                 role="student"
                 icon={<UserRound className="h-5 w-5" />}
                 title="Estudiante"
-                description="María Belén Romero · 5° año"
+                description="María Belén Romero · 4° año"
               />
               <RoleButton
                 role="teacher"
