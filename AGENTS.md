@@ -2,6 +2,8 @@
 
 Compact guidance for OpenCode sessions. Omitting anything obvious from filenames or standard Next.js docs.
 
+> Also see `CLAUDE.md` for equivalent Claude Code guidance.
+
 ## Domain context (critical)
 
 This app is for the **II Cátedra de Clínica Ginecológica** (Hospital Universitario de Maternidad y Neonatología — Maternidad Nacional, FCM-UNC). It manages **gynecology** clinical rotations, portfolios, and tutoring — **not obstetrics, not pediatrics, not neonatology**. All mock cases, locations, and terminology reflect adult gynecology (e.g., colposcopy, ovarian tumors, LEEP, oncología ginecológica). Do not introduce obstetric or baby-related content unless explicitly asked.
@@ -18,7 +20,7 @@ No env vars required. The app runs entirely on in-memory mocks.
 ## Build & verify
 
 ```bash
-npm run build      # static + server output
+npm run build      # production build (not static export)
 npm run lint       # Next.js default ESLint (no custom config file)
 ```
 
@@ -54,7 +56,8 @@ There are **no tests, no CI workflows, no Prettier config, and no pre-commit hoo
 
 - Tailwind CSS with `darkMode: "class"` (managed by `next-themes`).
 - CSS variables for the institutional palette are defined in `src/app/globals.css` (UNC blue primary `#13294B`, medical blue accent `#4B9CD3`, maternal green success).
-- Components in `src/components/ui/` are hand-written shadcn/ui-style primitives using Radix UI + `class-variance-authority`. Preserve `data-[state]` selectors and Radix patterns when editing.
+- Components in `src/components/ui/` are hand-written shadcn/ui-style primitives using Radix UI + `class-variance-authority`. They include custom variants/sizes (e.g., Button has `accent`, `success`, and `xl`), so avoid blindly overwriting them with `npx shadcn add`.
+- Preserve `data-[state]` selectors and Radix patterns when editing.
 - Use `cn(...)` from `src/lib/utils.ts` for conditional classes.
 - `next/font/google` loads Inter via CSS variable `--font-inter`.
 - Image domains allowed: `images.unsplash.com`, `picsum.photos`, `i.pravatar.cc`, `upload.wikimedia.org` (`next.config.ts`).

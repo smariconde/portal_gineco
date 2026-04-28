@@ -52,7 +52,7 @@ export const mockUsers: User[] = [
     fullName: "Dra. Verónica Aguirre",
     email: "vaguirre@fcm.unc.edu.ar",
     role: "teacher",
-    avatarUrl: "https://i.pravatar.cc/150?img=44",
+    avatarUrl: "https://i.pravatar.cc/150?img=24",
   },
   {
     id: "tut-2",
