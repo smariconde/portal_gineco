@@ -51,8 +51,8 @@ export default async function LoginPage() {
             II Cátedra de Clínica Ginecológica · FCM UNC
           </span>
           <h1 className="text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-            Tu portafolio clínico,{" "}
-            <span className="text-accent">en un solo lugar.</span>
+            Aplicación de tu rotación{" "}
+            <span className="text-accent">por la II Cátedra de Ginecología.</span>
           </h1>
           <p className="max-w-xl text-pretty text-base text-muted-foreground md:text-lg">
             Registrá tus rotaciones con QR, documentá los casos que viste y
